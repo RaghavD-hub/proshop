@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/RaghavD-hub/proshop#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.14.3"
   },
   "devDependencies": {
     "concurrently": "^8.0.1",
