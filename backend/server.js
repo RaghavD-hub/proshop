@@ -2,7 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
 import connectDB from './config/db.js';
-import products from './data/products.js'
+
+import productRoutes from './routes/productRoutes.js'
 
 connectDB(); //connect to MangoDB
 
@@ -12,6 +13,8 @@ const port = process.env.PORT || 5000;
 app.get('/', (req, res) => {
   res.send('API is runnin...');
 });
+
+app.use('/api/products', productRoutes);
 
 app.get(`/api/products`, (req, res) => {
   res.json(products);
