@@ -11,7 +11,6 @@ import { clearCartItems } from '../slices/cartSlice';
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
-
   const cart = useSelector((state) => state.cart);
 
   const [createOrder, { isLoading, error }] = useCreateOrderMutation();
@@ -128,9 +127,12 @@ const PlaceOrderScreen = () => {
                   <Col>${cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
+
               <ListGroup.Item>
-                {error && <Message variant='danger'>{error}</Message>}
+                {error && ( <Message variant='danger'>
+                  {error?.data?.message || error.error || 'An error occurred'}</Message>)}
               </ListGroup.Item>
+              
               <ListGroup.Item>
                 <Button
                   type='button'
